@@ -25,5 +25,22 @@ namespace PizzaUser.PizzaServices
             }
             return null;
         }
+
+        public static void AddBasket(int id, int count)
+        {
+            foreach (var item in PizzaDatabase.products.FindAll(p => p.Id == id))
+            {
+                item.Price = item.Price * count;
+                PizzaDatabase.basket.Add(item);
+            }
+        }
+
+        public static void AllBasket()
+        {
+            PizzaDatabase.basket.ForEach(delegate (Products products) 
+            {
+                Console.WriteLine(products);
+            });
+        }
     }
 }

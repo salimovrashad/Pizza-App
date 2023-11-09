@@ -1,4 +1,5 @@
 ﻿using PizzaUser.Models;
+using System;
 
 namespace PizzaUser.Database
 {
@@ -6,5 +7,7 @@ namespace PizzaUser.Database
     {
         public static List<Products> products = new List<Products>();
         public static List<Users> users = new List<Users>();
+        public static List<Products> basket = new List<Products>();
+
     }
 }

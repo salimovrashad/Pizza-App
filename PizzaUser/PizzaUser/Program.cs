@@ -2,6 +2,7 @@
 using PizzaUser.Exception;
 using PizzaUser.Exceptions;
 using PizzaUser.Models;
+using PizzaUser.PizzaServices;
 using PizzaUser.Services;
 using System.Drawing;
 using Console = Colorful.Console;
@@ -135,56 +136,41 @@ namespace PizzaUser
                                         PizzaServices.PizzaServices.GetAllPizza();
                                         break;
                                     case 2:
+                                        OrdP:
                                         Console.Write("Enter ID of the pizza you want to order: ");
                                         int productId = Convert.ToInt32(Console.ReadLine());
+                                        Console.Write("Count: ");
+                                        int count = Convert.ToInt32(Console.ReadLine());
 
-                                        Products selectedPizza = PizzaDatabase.products.Find(product => product.Id == productId);
-
-                                        try
+                                        for (int i = 0; i < PizzaDatabase.basket.Count + 1; i++)
                                         {
-                                            if (selectedPizza != null)
+                                            if (PizzaDatabase.basket[i].Id != productId)
                                             {
-                                                Console.Write("Enter number of pizza: ");
-                                                int count = Convert.ToInt32(Console.ReadLine());
-                                                int totalPrice = selectedPizza.Price * count;
-                                                Console.WriteLine($"Total Price => {totalPrice}");
-                                                Console.WriteLine("S - Add to basket \nG - Back");
-                                                char choose4 = Convert.ToChar(Console.ReadLine());
-                                                switch (choose4)
-                                                {
-                                                    case 'S':
-                                                        Console.WriteLine("Added to basket!");
-                                                        Console.WriteLine("Do you want to order? (Y - yes, N - no)");
-                                                        char choose5 = Convert.ToChar(Console.ReadLine());
-                                                        if (choose5 == 'Y')
-                                                        {
-
-                                                            Console.WriteLine("Enter address: ");
-                                                            string address = Console.ReadLine();
-                                                            Console.WriteLine("Enter phone number: ");
-                                                            string phoneNumber = Console.ReadLine();
-
-                                                            Console.WriteLine("Your order has been received!");
-
-                                                        }
-                                                        else if (choose5 == 'N')
-                                                        {
-                                                            PizzaServices.PizzaServices.GetAllPizza();
-                                                        }
-                                                        break;
-                                                    case 'G':
-                                                        PizzaServices.PizzaServices.GetAllPizza();
-                                                        break;
-                                                }
+                                                PizzaServices.PizzaServices.AddBasket(productId, count);
                                             }
                                             else
                                             {
-                                                throw new ProductNullException("Bu ID-de olan mehsul yoxdur!!!");
+                                                Console.WriteLine("Bu mehsul sebetde var!!!");
                                             }
                                         }
-                                        catch (ProductNullException ex)
+
+                                        Console.WriteLine("Basket List: ");
+                                        PizzaServices.PizzaServices.AllBasket();
+                                        Console.WriteLine(" 1.Odenise kec. \n 2.Order davam et. ");
+                                        int chooseor = Convert.ToInt32(Console.ReadLine());
+                                        switch (chooseor)
                                         {
-                                            Console.WriteLine(ex.Message);
+                                            case 1:
+                                                Console.WriteLine("Enter address: ");
+                                                string address = Console.ReadLine();
+                                                Console.WriteLine("Enter phone number: ");
+                                                string phoneNumber = Console.ReadLine();
+                                                Console.WriteLine($"Adres: {address}, PhoneNum: {phoneNumber}");
+                                                Console.WriteLine("Your order has been received!");
+                                                break;
+                                            case 2:
+                                                goto OrdP;
+                                                break;
                                         }
                                         break;
                                     case 3:
