@@ -10,7 +10,6 @@ namespace PizzaUser
 {
     public class Program
     {
-
         static void Main(string[] args)
         {
             string logo = @"  __  __                                                 _         ____  _                  
@@ -24,13 +23,12 @@ namespace PizzaUser
             {
                 Console.SetCursorPosition(i, 5);
                 Console.WriteLine(bar[i], Color.Red);
-                Thread.Sleep(90);
+                Thread.Sleep(10);
             }
 
              
             while (true)
             {
-
             Login:
                 Console.WriteLine("\nChoose from below option: \n1. Sign up. \n2. Login. \n3. Exit", Color.Yellow);
                 int choose = Convert.ToInt32(Console.ReadLine());
@@ -42,11 +40,11 @@ namespace PizzaUser
                         {
                             Users users = new Users();
 
-                            Console.WriteLine("Name: ");
+                            Console.Write("Name: ");
                             users.Name = Console.ReadLine();
-                            Console.WriteLine("Surname: ");
+                            Console.Write("Surname: ");
                             users.Surname = Console.ReadLine();
-                            Console.WriteLine("Password: ");
+                            Console.Write("Password: ");
                             users.Password = Console.ReadLine();
 
                             UserServices.AddUser(users);
@@ -63,9 +61,9 @@ namespace PizzaUser
 
                         break;
                     case 2:
-                        Console.WriteLine("Adi daxil edin: ");
+                        Console.Write("Adi daxil edin: ");
                         string name = Console.ReadLine();
-                        Console.WriteLine("Sifre daxil edin: ");
+                        Console.Write("Sifre daxil edin: ");
                         string password = Console.ReadLine();
 
                         if (name == "admin" && password == "admin")
@@ -90,9 +88,9 @@ namespace PizzaUser
 
                                             Products pizza = new Products();
 
-                                            Console.WriteLine("Pizza Name: ");
+                                            Console.Write("Pizza Name: ");
                                             pizza.PizzaName = Console.ReadLine();
-                                            Console.WriteLine("Pizza Price: ");
+                                            Console.Write("Pizza Price: ");
                                             pizza.Price = Convert.ToInt32(Console.ReadLine());
 
                                             PizzaServices.PizzaServices.AddPizza(pizza);
@@ -103,9 +101,9 @@ namespace PizzaUser
                                             int editinp = Convert.ToInt32(Console.ReadLine());
 
                                             Products updatedProduct = PizzaServices.PizzaServices.UpProductById(editinp);
-                                            Console.WriteLine("Name: ");
+                                            Console.Write("Name: ");
                                             updatedProduct.PizzaName = Console.ReadLine();
-                                            Console.WriteLine("Price: ");
+                                            Console.Write("Price: ");
                                             updatedProduct.Price = Convert.ToInt32(Console.ReadLine());
 
                                             Console.WriteLine("Update successfull!!!");
@@ -128,7 +126,7 @@ namespace PizzaUser
                             if (name == item.Name && password == item.Password)
                             {
                             Userchoose:
-                                Console.WriteLine("Choose from below option: \n1. Look pizzas. \n2. Order pizza. \n3. Exit", Color.Yellow);
+                                Console.WriteLine("\nChoose from below option: \n1. Look pizzas. \n2. Order pizza. \n3. Exit", Color.Yellow);
                                 int choose1 = Convert.ToInt32(Console.ReadLine());
 
                                 switch (choose1)

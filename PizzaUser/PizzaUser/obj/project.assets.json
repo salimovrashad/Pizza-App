@@ -2484,11 +2484,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rashad\\Desktop\\PizzaUser\\PizzaUser\\PizzaUser.csproj",
+      "projectUniqueName": "C:\\Users\\Rashad\\Desktop\\Pizza-App\\PizzaUser\\PizzaUser\\PizzaUser.csproj",
       "projectName": "PizzaUser",
-      "projectPath": "C:\\Users\\Rashad\\Desktop\\PizzaUser\\PizzaUser\\PizzaUser.csproj",
+      "projectPath": "C:\\Users\\Rashad\\Desktop\\Pizza-App\\PizzaUser\\PizzaUser\\PizzaUser.csproj",
       "packagesPath": "C:\\Users\\Rashad\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rashad\\Desktop\\PizzaUser\\PizzaUser\\obj\\",
+      "outputPath": "C:\\Users\\Rashad\\Desktop\\Pizza-App\\PizzaUser\\PizzaUser\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
