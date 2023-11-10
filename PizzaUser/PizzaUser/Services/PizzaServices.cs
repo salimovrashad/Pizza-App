@@ -9,6 +9,7 @@ namespace PizzaUser.PizzaServices
         {
             PizzaDatabase.products.Add(pizza);
         }
+
         public static void GetAllPizza() 
         {
             PizzaDatabase.products.ForEach(delegate (Products pizza)
@@ -16,6 +17,7 @@ namespace PizzaUser.PizzaServices
                 Console.WriteLine(pizza);
             });
         }
+
         public static Products UpProductById(int Id)
         {
             var delegat = PizzaDatabase.products.FindAll(p => p.Id == Id);
