@@ -5,9 +5,9 @@ namespace PizzaUser.Services
 {
     public static class UserServices
     {
-        public static void AddUser(Users user)
+        public static void AddUser(Users users)
         {
-            PizzaDatabase.users.Add(user);
+            PizzaDatabase.users.Add(users);
         }
 
         public static void AllUsers() 

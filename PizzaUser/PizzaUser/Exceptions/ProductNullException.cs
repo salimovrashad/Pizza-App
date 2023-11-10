@@ -1,6 +1,6 @@
 ﻿namespace PizzaUser.Exception
 {
-    internal class ProductNullException : System.Exception
+    public class ProductNullException : System.Exception
     {
         public ProductNullException()
         {
